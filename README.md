@@ -1,2 +1,2 @@
 # Tarefinha
-Sistema de gerenciamento de tarefas 
+Sistema de gerenciamento de tarefas.
