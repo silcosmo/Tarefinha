@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TempalteView
+from main.models import Task                                        
 
 def task_list(request):
     tarefas = Task.objects.all()
