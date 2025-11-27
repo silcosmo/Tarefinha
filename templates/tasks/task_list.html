@@ -1,45 +1,38 @@
 {% extends "base.html" %}
 
+{% block title %} Minhas Tarefas {% endblock %}
+
 {% block content %}
-
-    {% for i in tarefas %}
-        {{i.titulo}}
-        {{i.descricao}}
-        {{i.atualizado_em}}
-
-    {% endfor %}
+<h1>Minhas tarefas</h1>
+<br>
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">id</th>
+      <th scope="col">Titulo</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Usuário</th>
+      <th scope="col">Data limite</th>
+      <th scope="col">Atualizado em</th>
     </tr>
   </thead>
   <tbody>
+
+    {% for task in tarefas %}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th>{{ task.id }}</th>
+      <th>{{ task.titulo }}</th>
+      <th>{{ task.descricao }}</th>
+      <th>{{ task.usuario }}</th>
+      <th>{{ task.data_limite }}</th>
+      <th>{{ task.atulaizado_em }}</th>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+
+    {%endfor%}
+
   </tbody>
 </table>
-
-
 
 {% endblock %}
 
