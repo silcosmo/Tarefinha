@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+
+    <p>
+        <label for='id_titulo'> Título: </label><br>
+        <input type= "text"
+        id="id_titulo"
+        maxlength="200"
+        value="{% if task %}{{task.titulo}}{%endif%}"
+        >
+    </p>
+
+    <p>
+        <label for='id_descricao'> Título: </label><br>
+        <textarea
+            id="id_descricao"
+            name="descricao"
+            rows="4">{% if task %}{{task.titulo}}{%endif%}
+        </textarea>
+    </p>
+
+
+
+
+    <button class="btn btn-primary">Salvar</button>
+
+
+</form>
+
+{% endblock %}

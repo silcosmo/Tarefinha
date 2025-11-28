@@ -38,6 +38,9 @@ def task_create(request):
         prioridade = request.POST.get('prioridade', "").strip()
         data_limite = request.POST.get('data_limite', "").strip()
 
+        print(título)
+        print(descricao)
+
     context={
         'opcoes_prioridade': Task.Priority.choices,
     }
