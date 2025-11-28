@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from main.models import Task                                        
 
+#visualização das tarefas
 def task_list(request):
     tarefas = Task.objects.all()
     context = {
@@ -18,6 +19,7 @@ def tasks_ok(request):
 
     return render(request, 'tasks/tasks_ok.html', context)
 
+
 def tasks_nok(request):
     tarefas = Task.objects.filter(concluida=0)
     context = {
@@ -25,3 +27,18 @@ def tasks_nok(request):
     }
 
     return render(request, 'tasks/tasks_nok.html', context)
+
+
+#cria tasks
+def task_create(request):
+    if request.method =='POST':
+        titulo = request.POST.get('titulo', "").strip()
+        descricao = request.POST.get('descricao', "").strip()
+        concluida = request.POST.get('concluida', "").strip()
+        prioridade = request.POST.get('prioridade', "").strip()
+        data_limite = request.POST.get('data_limite', "").strip()
+
+    context={
+        'opcoes_prioridade': Task.Priority.choices,
+    }
+    return render (request, 'tasks/task_form.html', context)
