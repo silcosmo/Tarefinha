@@ -10,18 +10,32 @@
         id="id_titulo"
         maxlength="200"
         value="{% if task %}{{task.titulo}}{%endif%}"
+        placeholder="Digite seu título"
         >
     </p>
 
     <p>
-        <label for='id_descricao'> Título: </label><br>
+        <label for='id_descricao'> Descricao: </label><br>
         <textarea
             id="id_descricao"
             name="descricao"
-            rows="4">{% if task %}{{task.titulo}}{%endif%}
-        </textarea>
+            
+            rows="4"> {% if task %}{{task.titulo}}{%endif%}
+        </textarea> 
     </p>
-
+###Parei aqui, falta verifdicar o código a parti daqui
+    <p>
+        <label for='id_prioridade'> Prioridade: </label><br>
+        <select name="prioridade"  id="id_descricao">
+            {% for value, label in opcoes_prioridade %}
+                {% if task and task.prioridade == value %}
+                    <option value="{{ value }}" selected> {{label}} </option>
+                {% else %}
+                    <option value="{{value}}"> {{label}}</option>
+            {% endfor %}
+                    
+        </select>
+    </p>
 
 
 
